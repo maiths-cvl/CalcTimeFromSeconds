@@ -22,6 +22,7 @@ void calcTime(int* seconds) {
 	if (int(*seconds) > 0) {
 		*minutes = int(*seconds / 60);
 		*seconds -= *minutes * 60;
+		cout << *seconds << endl;
 	}
 	if (int(*seconds) > 0) {
 		*secs = *seconds;
@@ -36,6 +37,11 @@ void calcTime(int* seconds) {
 	cout << *minutes << " minutes" << endl;
 	cout << *secs << " seconds" << endl;
 
+	free(days);
+	free(hours);
+	free(minutes);
+	free(secs);
+
 }
 
 int main() {
@@ -46,6 +52,8 @@ int main() {
 	cin.ignore();
 
 	calcTime(sc);
+	
+	free(sc);
 
 	cin;
 	cin.ignore();
